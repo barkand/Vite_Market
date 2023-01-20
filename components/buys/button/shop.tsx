@@ -4,8 +4,7 @@ import { useTranslation } from "react-i18next";
 import Buy, { Transfer } from "../../../contracts/lib";
 
 import { PublicContext } from "../../../../core/context";
-import { IconButton } from "../../../../core/components";
-import { ShoppingCartIcon } from "../../../../core/icon";
+import { Button } from "../../../../core/components";
 import { StatusTypeEnum } from "../../../../core/constant";
 
 export default function Shop(props: any) {
@@ -97,13 +96,11 @@ export default function Shop(props: any) {
   return (
     <>
       {!owner && forSale && (
-        <IconButton
-          label="add to cart"
+        <Button
+          title={t("buy", { ns: "market" })}
           sx={{ ...props.sx, color: soled ? "#9a70ff" : "#5fb987" }}
           onClick={buyHandle}
-        >
-          <ShoppingCartIcon />
-        </IconButton>
+        />
       )}
     </>
   );
