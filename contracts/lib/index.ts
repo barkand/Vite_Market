@@ -7,7 +7,7 @@ import { logger } from "../../../core/libs";
 import { SetBuy as ApiSetBuy } from "../../api";
 import Market from "../Market.json";
 
-const path = "Market>Contract>lib>";
+const path = "Market>Contracts>lib>";
 
 const Buy = async (
   productId: number,
@@ -31,9 +31,9 @@ const Buy = async (
     });
     txn = _result.transactionHash;
   } catch (e: any) {
-    logger.error(`${path}Buy: ${e}`);
     if (e.code === -32000) return { code: 300, message: "buy-money" };
 
+    logger.error(`${path}Buy: ${e.message}`);
     return { code: 300, message: "unsuccess-buy" };
   }
 
