@@ -9,7 +9,7 @@ import {
 } from "../api";
 
 import { PublicContext } from "../../../../core/context";
-import { EditTypeEnum } from "../../../../core/constant";
+import { EditTypeEnum, RoutesTypeEnum } from "../../../../core/constant";
 import {
   GridHeader,
   GridItem,
@@ -112,8 +112,10 @@ export default function SaleBox({ product }: any) {
       ) : (
         <NotificationButton
           id={product.id}
-          name={product.name}
-          image={product.image}
+          message={`${product.name} (${product.card}) ${t(
+            "notify-active-title"
+          )}`}
+          link={`${RoutesTypeEnum.Item}/${product.id}`}
           notified={product.notified}
           sx={{ marginTop: "-50px", float: publicCtx.culture.revertAlign }}
         />
