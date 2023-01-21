@@ -14,6 +14,7 @@ export default function MenuList(props: any) {
         name={t("list")}
         icon={<PlayerIcon />}
         onclick={props.onClose}
+        className="step-players"
       />
     </>
   );
