@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 
-import { RoutesTypeEnum } from "../../core/constant";
-import { ButtonList } from "../../core/components";
-import { PlayerIcon } from "../../core/icon";
+import { RoutesTypeEnum } from "../../../core/constant";
+import { ButtonList } from "../../../core/components";
+import { PlayerIcon } from "../../../core/icon";
 
-export default function MenuList(props: any) {
+export default function MarketMenu(props: any) {
   const { t } = useTranslation(["market"]);
 
   return (
