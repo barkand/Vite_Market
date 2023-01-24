@@ -35,8 +35,13 @@ export default function NftChart({ productId }: { productId: number }) {
         productId: productId,
       });
 
-      if (_result.code === 200 && _result.items.length > 0)
-        setChart(_result.items);
+      if (_result.code === 200 && _result.items.length > 0) {
+        let res: any = [];
+        _result.items.map((r: any) => {
+          res.push({ ...r, value: r.price });
+        });
+        setChart(res);
+      }
     };
     getHistory();
   }, [loaded]);
