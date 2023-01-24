@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { GetHistory as ApiGetHistory } from "../api";
 
 import { PublicContext } from "../../../../core/context";
-import { Background } from "../../../../core/theme";
+import { Background, Colors } from "../../../../core/theme";
 import {
   GridHeader,
   GridItem,
@@ -56,7 +56,13 @@ export default function NftChart({ productId }: { productId: number }) {
           </GridItem>
           <GridItem lg={6} md={12}>
             <div style={{ height: 250 }}>
-              <LineChart data={chart} />
+              <LineChart
+                data={chart}
+                color={
+                  Colors[publicCtx.theme.color][publicCtx.theme.background.name]
+                    .primary
+                }
+              />
             </div>
           </GridItem>
           <GridItem lg={6} md={12}>
