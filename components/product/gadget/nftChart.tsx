@@ -55,7 +55,9 @@ export default function NftChart({ productId }: { productId: number }) {
             <Divider sx={{ marginTop: "10px" }} />
           </GridItem>
           <GridItem lg={6} md={12}>
-            <LineChart data={chart} />
+            <div style={{ height: 250 }}>
+              <LineChart data={chart} />
+            </div>
           </GridItem>
           <GridItem lg={6} md={12}>
             <div
