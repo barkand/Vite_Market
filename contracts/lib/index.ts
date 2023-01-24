@@ -4,7 +4,7 @@ import {
 } from "../../../admin/components/security/Authentication/wallet/libs/web3";
 import { logger } from "../../../core/libs";
 
-import { SetBuy as ApiSetBuy } from "../../api";
+import { Set as ApiSet } from "../../api";
 import Market from "../Market.json";
 
 const path = "Market>Contracts>lib>";
@@ -37,11 +37,14 @@ const Buy = async (
     return { code: 300, message: "unsuccess-buy" };
   }
 
-  let _result = await ApiSetBuy({
-    product: productId,
-    price: price,
-    txn: txn,
-  });
+  let _result = await ApiSet(
+    {
+      product: productId,
+      price: price,
+      txn: txn,
+    },
+    "save-buy"
+  );
 
   return _result;
 };

@@ -1,6 +1,6 @@
-const SetBuy = async (params: any) => {
+const Set = async (params: any, name: string) => {
   let _result = await fetch(
-    `${import.meta.env.VITE_SERVER_PATH}market/save-buy`,
+    `${import.meta.env.VITE_SERVER_PATH}market/${name}`,
     {
       method: "post",
       headers: { "Content-Type": "application/json" },
@@ -35,4 +35,4 @@ const Get = async (params: any, name: string) => {
   return { code: 200, items: _result.data };
 };
 
-export { SetBuy, Get };
+export { Set, Get };
