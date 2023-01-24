@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "../card";
+import ShopCard from "../card";
 
 import { PublicContext } from "../../../core/context";
 import {
@@ -37,7 +37,10 @@ export default function ProductsList(props: any) {
           <>
             {products.map((item: any) => (
               <GridItem key={item.id} xl={3} lg={4} md={6} sm={12}>
-                <Card product={item} setLikeChanged={props.setLikeChanged} />
+                <ShopCard
+                  product={item}
+                  setLikeChanged={props.setLikeChanged}
+                />
               </GridItem>
             ))}
             {products.length % 4 !== 0 &&

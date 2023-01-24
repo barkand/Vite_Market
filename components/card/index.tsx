@@ -1,15 +1,15 @@
 import { LikeButton } from "../favorites/button";
 import { ShopButton } from "../buys/button";
 
-import { Card as CardComponent } from "../../../core/components";
+import { default as ShopCardComponent } from "./shopCard";
 import { RoutesTypeEnum } from "../../../core/constant";
 
-export default function Card(props: any) {
+export default function ShopCard(props: any) {
   const { product } = props;
 
   return (
     <>
-      <CardComponent
+      <ShopCardComponent
         id={product.id}
         title={product.title}
         price={product.price}

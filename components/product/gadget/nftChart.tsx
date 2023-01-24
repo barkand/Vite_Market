@@ -4,15 +4,15 @@ import { useTranslation } from "react-i18next";
 import { GetHistory as ApiGetHistory } from "../api";
 
 import { PublicContext } from "../../../../core/context";
+import { Background } from "../../../../core/theme";
 import {
   GridHeader,
   GridItem,
   Divider,
   Label,
   Table,
+  LineChart,
 } from "../../../../core/components";
-import { Background } from "../../../../core/theme";
-import ChartLine from "../../../../core/components/charts/chartLine";
 
 export default function NftChart({ productId }: { productId: number }) {
   const { publicCtx } = React.useContext(PublicContext);
@@ -50,7 +50,7 @@ export default function NftChart({ productId }: { productId: number }) {
             <Divider sx={{ marginTop: "10px" }} />
           </GridItem>
           <GridItem lg={6} md={12}>
-            <ChartLine data={chart} />
+            <LineChart data={chart} />
           </GridItem>
           <GridItem lg={6} md={12}>
             <div
