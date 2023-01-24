@@ -70,10 +70,13 @@ const Transfer = async (productId: number, price: any, account: any) => {
     return { code: 300, message: "unsuccess-buy" };
   }
 
-  let _result = await ApiSetBuy({
-    product: productId,
-    price: price,
-  });
+  let _result = await ApiSet(
+    {
+      product: productId,
+      price: price,
+    },
+    "save-buy"
+  );
 
   return _result;
 };
