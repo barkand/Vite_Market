@@ -60,6 +60,7 @@ export default function NftChart({ productId }: { productId: number }) {
             <div style={{ height: 250 }}>
               <LineChart
                 data={chart}
+                yAxis
                 color={
                   Colors[publicCtx.theme.color][publicCtx.theme.background.name]
                     .primary

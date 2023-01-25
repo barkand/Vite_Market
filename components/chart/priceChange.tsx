@@ -25,6 +25,7 @@ export default function priceChange() {
       <Card title={t("change-prices", { ns: "market" })} height="350px">
         <LineChart
           data={lineData}
+          yAxis={!publicCtx.device.isMobile}
           color={
             Colors[publicCtx.theme.color][publicCtx.theme.background.name]
               .primary
