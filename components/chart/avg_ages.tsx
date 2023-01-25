@@ -1,9 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { Get } from "../../api";
-
 import { Card, BarChart } from "../../../core/components";
+import { PostApi } from "../../../core/libs";
 
 export default function AvgAges() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -17,7 +16,7 @@ export default function AvgAges() {
     }
 
     const getCntPost = async () => {
-      const _result: any = await Get({}, "chart-avg-ages");
+      const _result: any = await PostApi({}, "market/chart-avg-ages");
 
       if (_result.code === 200) setCharts(_result.items);
     };

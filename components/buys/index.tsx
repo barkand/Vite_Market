@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProductsList from "../products";
-import { GetBuys as ApiGetBuys } from "./api";
+import { PostAuthApi } from "../../../core/libs";
 
 export default function Buys() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -18,12 +18,15 @@ export default function Buys() {
         setLoaded(true);
         return;
       }
-      const _result: any = await ApiGetBuys({
-        pages: {
-          pageNumber: pageNumber,
-          perPage: perPage,
+      const _result: any = await PostAuthApi(
+        {
+          pages: {
+            pageNumber: pageNumber,
+            perPage: perPage,
+          },
         },
-      });
+        "market/buys"
+      );
 
       if (_result.code === 200) {
         setProducts(_result.items.products);

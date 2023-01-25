@@ -1,9 +1,8 @@
 import React from "react";
 
-import { GetGroups as ApiGetGroups } from "./api";
-
 import { PublicContext } from "../../../core/context";
 import { Media, Carousel } from "../../../core/components";
+import { PostApi } from "../../../core/libs";
 
 export default function Groups() {
   const { publicCtx } = React.useContext(PublicContext);
@@ -17,11 +16,14 @@ export default function Groups() {
     }
 
     const getGroups = async () => {
-      const _result = await ApiGetGroups({
-        lang: publicCtx.culture.name,
-      });
+      const _result = await PostApi(
+        {
+          lang: publicCtx.culture.name,
+        },
+        "market/get-groups"
+      );
 
-      if (_result?.code === 200) setGroups(_result?.groups);
+      if (_result?.code === 200) setGroups(_result?.items);
     };
     getGroups();
   }, [loaded, publicCtx.culture.name]);

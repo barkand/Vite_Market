@@ -1,10 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { Get } from "../../api";
-
 import { PublicContext } from "../../../core/context";
 import { Card, PieChart } from "../../../core/components";
+import { PostApi } from "../../../core/libs";
 
 export default function CntPostPlayers() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -19,11 +18,11 @@ export default function CntPostPlayers() {
     }
 
     const getCntPost = async () => {
-      const _result: any = await Get(
+      const _result: any = await PostApi(
         {
           lang: publicCtx.culture.name,
         },
-        "chart-cnt-position"
+        "market/chart-cnt-position"
       );
 
       if (_result.code === 200) setCharts(_result.items);

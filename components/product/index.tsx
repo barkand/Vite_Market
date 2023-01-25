@@ -1,10 +1,5 @@
 import React from "react";
 
-import { GetProductItem as ApiGetProductItem } from "./api";
-import { Image, Details, NftDetails, NftChart } from "./gadget";
-import { LikeButton } from "../favorites/button";
-import SaleBox from "./gadget/sale";
-
 import { PublicContext } from "../../../core/context";
 import {
   GridHeader,
@@ -13,6 +8,11 @@ import {
   Tilt,
 } from "../../../core/components";
 import { RoutesTypeEnum } from "../../../core/constant";
+import { PostAuthApi } from "../../../core/libs";
+
+import { Image, Details, NftDetails, NftChart } from "./gadget";
+import LikeButton from "../favorites/button";
+import SaleBox from "./gadget/sale";
 
 export default function ProductItem({ id }: { id: any }) {
   const { publicCtx } = React.useContext(PublicContext);
@@ -26,12 +26,15 @@ export default function ProductItem({ id }: { id: any }) {
     }
 
     const getProduct = async () => {
-      const _result = await ApiGetProductItem({
-        lang: publicCtx.culture.name,
-        id: id,
-      });
+      const _result = await PostAuthApi(
+        {
+          lang: publicCtx.culture.name,
+          id: id,
+        },
+        "market/item"
+      );
 
-      if (_result.code === 200) setProduct(_result.product);
+      if (_result.code === 200) setProduct(_result.items);
     };
     getProduct();
   }, [publicCtx.culture.name, loaded]);

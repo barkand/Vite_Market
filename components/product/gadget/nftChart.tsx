@@ -1,8 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { GetHistory as ApiGetHistory } from "../api";
-
 import { PublicContext } from "../../../../core/context";
 import { Background, Colors } from "../../../../core/theme";
 import {
@@ -13,6 +11,7 @@ import {
   Table,
   LineChart,
 } from "../../../../core/components";
+import { PostApi } from "../../../../core/libs";
 
 export default function NftChart({ productId }: { productId: number }) {
   const { publicCtx } = React.useContext(PublicContext);
@@ -31,9 +30,12 @@ export default function NftChart({ productId }: { productId: number }) {
         setLoaded(true);
         return;
       }
-      const _result: any = await ApiGetHistory({
-        productId: productId,
-      });
+      const _result: any = await PostApi(
+        {
+          productId: productId,
+        },
+        "market/history"
+      );
 
       if (_result.code === 200 && _result.items.length > 0) {
         let res: any = [];

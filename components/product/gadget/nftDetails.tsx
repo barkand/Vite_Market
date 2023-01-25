@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { GetBuyDetails as ApiGetBuyDetails } from "../api";
 import { GetOwnerToken, GetTokenURI } from "../../../contracts/lib";
 
 import {
@@ -11,6 +10,7 @@ import {
   Label,
 } from "../../../../core/components";
 import { PublicContext } from "../../../../core/context";
+import { PostAuthApi } from "../../../../core/libs";
 
 export default function NftDetails({ productId }: { productId: number }) {
   const { publicCtx } = React.useContext(PublicContext);
@@ -28,7 +28,11 @@ export default function NftDetails({ productId }: { productId: number }) {
       const getNFT = async () => {
         const _ownerToken: any = await GetOwnerToken(productId);
         const _tokenURI: any = await GetTokenURI(productId);
-        const _buy: any = await ApiGetBuyDetails({ productId: productId });
+        const _result: any = await PostAuthApi(
+          { productId: productId },
+          "market/buy"
+        );
+        const _buy: any = _result?.items;
 
         if (_ownerToken.code !== 300 || _tokenURI.code !== 300) {
           setNft({

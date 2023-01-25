@@ -2,11 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import _debounce from "lodash/debounce";
 
-import ShopButton from "../../buys/button/shop";
-import {
-  UpdateNftPrice as ApiUpdateNftPrice,
-  UpdateForSale as ApiUpdateForSale,
-} from "../api";
+import ShopButton from "../../buys/button";
 
 import { PublicContext } from "../../../../core/context";
 import { EditTypeEnum, RoutesTypeEnum } from "../../../../core/constant";
@@ -16,6 +12,7 @@ import {
   Textbox,
   Switch,
 } from "../../../../core/components";
+import { PostAuthApi } from "../../../../core/libs";
 import {
   CheckCircleIcon,
   CancelIcon,
@@ -35,10 +32,13 @@ export default function SaleBox({ product }: any) {
     let _inputValue = inputValue.trim();
     if (_inputValue === "") return;
 
-    let _result: any = await ApiUpdateNftPrice({
-      product: product.id,
-      price: _inputValue,
-    });
+    let _result: any = await PostAuthApi(
+      {
+        product: product.id,
+        price: _inputValue,
+      },
+      "market/update-price"
+    );
 
     switch (_result.code) {
       case 200:
@@ -62,10 +62,13 @@ export default function SaleBox({ product }: any) {
     let _newStateForSale = !forSale;
     setForSale(_newStateForSale);
 
-    let _result: any = await ApiUpdateForSale({
-      product: product.id,
-      forSale: _newStateForSale,
-    });
+    let _result: any = await PostAuthApi(
+      {
+        product: product.id,
+        forSale: _newStateForSale,
+      },
+      "market/save-sale"
+    );
 
     if (_result.code !== 200) setForSale(!_newStateForSale);
   };

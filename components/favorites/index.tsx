@@ -1,7 +1,8 @@
 import React from "react";
 
+import { PostAuthApi } from "../../../core/libs";
+
 import ProductsList from "../products";
-import { GetFavorites as ApiGetFavorites } from "./api";
 
 export default function Favorites() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -20,12 +21,15 @@ export default function Favorites() {
     }
 
     const getFavorites = async () => {
-      const _result: any = await ApiGetFavorites({
-        pages: {
-          pageNumber: pageNumber,
-          perPage: perPage,
+      const _result: any = await PostAuthApi(
+        {
+          pages: {
+            pageNumber: pageNumber,
+            perPage: perPage,
+          },
         },
-      });
+        "market/favorites"
+      );
 
       if (_result.code === 200) {
         setProducts(_result.items.products);
