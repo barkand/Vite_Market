@@ -2,9 +2,8 @@ import {
   Utils,
   GetContract,
 } from "../../../admin/components/security/Authentication/wallet/libs/web3";
-import { logger } from "../../../core/libs";
+import { logger, PostAuthApi } from "../../../core/libs";
 
-import { Set as ApiSet } from "../../api";
 import Market from "../Market.json";
 
 const path = "Market>Contracts>lib>";
@@ -37,13 +36,13 @@ const Buy = async (
     return { code: 300, message: "unsuccess-buy" };
   }
 
-  let _result = await ApiSet(
+  let _result = await PostAuthApi(
     {
       product: productId,
       price: price,
       txn: txn,
     },
-    "save-buy"
+    "market/save-buy"
   );
 
   return _result;
@@ -70,12 +69,12 @@ const Transfer = async (productId: number, price: any, account: any) => {
     return { code: 300, message: "unsuccess-buy" };
   }
 
-  let _result = await ApiSet(
+  let _result = await PostAuthApi(
     {
       product: productId,
       price: price,
     },
-    "save-buy"
+    "market/save-buy"
   );
 
   return _result;
