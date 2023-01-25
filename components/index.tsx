@@ -5,4 +5,5 @@ export { default as MarketMenu } from "./menu";
 export { TopPlayers } from "./top";
 
 export { default as ChartCntPostPlayers } from "./chart/cntPostPlayers";
-export { default as ChartAvgAges } from "./chart/avg_ages";
+export { default as ChartAvgAges } from "./chart/avgAges";
+export { default as ChartCntSales } from "./chart/cntSalesCards";
