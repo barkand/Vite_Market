@@ -1,7 +1,7 @@
-import { LikeButton } from "../favorites/button";
-import { ShopButton } from "../buys/button";
+import LikeButton from "../favorites/button";
+import { default as ShopButton } from "../buys/button";
 
-import { default as ShopCardComponent } from "./shopCard";
+import { default as ShopCardComponent } from "./mui/shopCard";
 import { RoutesTypeEnum } from "../../../core/constant";
 
 export default function ShopCard(props: any) {

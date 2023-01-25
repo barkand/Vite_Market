@@ -1,13 +1,10 @@
 import React from "react";
 
 import { PublicContext } from "../../../../../core/context";
+import { PostApi, PostAuthApi } from "../../../../../core/libs";
 
 import FilterWeb from "./web";
 import FilterMobile from "./mobile";
-import {
-  GetProductsFilter as ApiGetProductsFilter,
-  GetProducts as ApiGetProducts,
-} from "../api";
 
 export default function FilterBar({
   setProducts,
@@ -41,16 +38,19 @@ export default function FilterBar({
       return;
     }
     const getFilters = async () => {
-      const _result = await ApiGetProductsFilter({
-        lang: publicCtx.culture.name,
-      });
+      const _result = await PostApi(
+        {
+          lang: publicCtx.culture.name,
+        },
+        "market/filters"
+      );
 
       if (_result.code === 200) {
-        setCards(_result.filters.cards);
-        setCountries(_result.filters.countries);
-        setTeams(_result.filters.teams);
-        setPositions(_result.filters.positions);
-        setAges(_result.filters.ages);
+        setCards(_result.items.cards);
+        setCountries(_result.items.countries);
+        setTeams(_result.items.teams);
+        setPositions(_result.items.positions);
+        setAges(_result.items.ages);
 
         setCard([]);
         setCountry([]);
@@ -66,20 +66,23 @@ export default function FilterBar({
   const getProducts = async () => {
     if (!loaded) return;
 
-    const _result = await ApiGetProducts({
-      filter: {
-        country: country,
-        team: team,
-        position: position,
-        age: age,
-        card: card,
+    const _result = await PostAuthApi(
+      {
+        filter: {
+          country: country,
+          team: team,
+          position: position,
+          age: age,
+          card: card,
+        },
+        lang: publicCtx.culture.name,
+        pages: {
+          pageNumber: pageNumber,
+          perPage: perPage,
+        },
       },
-      lang: publicCtx.culture.name,
-      pages: {
-        pageNumber: pageNumber,
-        perPage: perPage,
-      },
-    });
+      "market/products"
+    );
 
     if (_result.code === 200) {
       setProducts(_result.items.products);

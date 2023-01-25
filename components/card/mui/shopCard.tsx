@@ -10,8 +10,8 @@ import {
   Skeleton,
 } from "@mui/material";
 
-import ShareButton from "../../../core/components/toys/share";
-import Tilt from "../../../core/components/effect/tilt";
+import ShareButton from "../../../../core/components/toys/share";
+import Tilt from "../../../../core/components/effect/tilt";
 
 export default function ShopCard(props: any) {
   const {

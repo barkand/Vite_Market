@@ -1,6 +1,7 @@
 import React from "react";
 
 import { PublicContext } from "../../../core/context";
+
 import ProductsList from "../../components/products";
 import FilterBar from "../../components/products/filter/form";
 
