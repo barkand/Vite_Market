@@ -46,7 +46,7 @@ export default function Like(props: any) {
       );
 
       if (_result.code === 200) {
-        setLiked(_result.status === "liked");
+        setLiked(_result.message === "liked");
         if (props.setLikeChanged)
           props.setLikeChanged(Math.floor(Math.random() * 1000));
       }
