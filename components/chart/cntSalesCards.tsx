@@ -27,7 +27,7 @@ export default function CntSalesCards() {
   }, [loaded]);
 
   return (
-    <Card title={t("cnt-sale-cards", { ns: "market" })} height="350px">
+    <Card title={t("cnt-sale-cards", { ns: "market" })} height="350px" className="step-chart-Sales">
       {chart && (
         <StackedBarChart
           data={chart}
