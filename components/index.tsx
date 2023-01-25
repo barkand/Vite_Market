@@ -7,3 +7,4 @@ export { TopPlayers } from "./top";
 export { default as ChartCntPostPlayers } from "./chart/cntPostPlayers";
 export { default as ChartAvgAges } from "./chart/avgAges";
 export { default as ChartCntSales } from "./chart/cntSalesCards";
+export { default as ChartPriceChange } from "./chart/priceChange";
