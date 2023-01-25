@@ -26,7 +26,6 @@ export default function CntPostPlayers() {
       );
 
       if (_result.code === 200) setCharts(_result.items);
-      console.log(_result);
     };
     getCntPost();
   }, [loaded]);
