@@ -27,7 +27,7 @@ export default function Shop(props: any) {
   const [owner, setOwner] = React.useState(false);
 
   const buyHandle = () => {
-    if (!publicCtx.wallet.connected) {
+    if (!publicCtx.user.connected) {
       setPublicCtx({
         ...publicCtx,
         alert: {
@@ -66,7 +66,7 @@ export default function Shop(props: any) {
         const _result: any = await Transfer(
           itemId,
           price,
-          publicCtx.wallet.account
+          publicCtx.user.user_id
         );
 
         if (_result.code === 200) {
@@ -79,7 +79,7 @@ export default function Shop(props: any) {
         const _result: any = await Buy(
           itemId,
           price,
-          publicCtx.wallet.account,
+          publicCtx.user.user_id,
           `${import.meta.env.VITE_CLIENT_PATH}/products/${image}`
         );
 

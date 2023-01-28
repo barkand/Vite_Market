@@ -75,7 +75,7 @@ export default function SaleBox({ product }: any) {
 
   return (
     <>
-      {product.owner === publicCtx.wallet.account ? (
+      {product.owner === publicCtx.user.user_id ? (
         <GridHeader rowSpacing={2} sx={{ marginTop: "10px" }}>
           <GridItem xs={4}>{t("your-price")}</GridItem>
           <GridItem xs={6}>

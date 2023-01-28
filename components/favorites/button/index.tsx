@@ -24,7 +24,7 @@ export default function Like(props: any) {
   }, [isLiked]);
 
   const likeHandle = () => {
-    if (!publicCtx.wallet.connected) {
+    if (!publicCtx.user.connected) {
       setPublicCtx({
         ...publicCtx,
         alert: {

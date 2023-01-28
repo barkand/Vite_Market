@@ -24,7 +24,7 @@ export default function NftDetails({ productId }: { productId: number }) {
       return;
     }
 
-    if (publicCtx.wallet.connected) {
+    if (publicCtx.user.connected) {
       const getNFT = async () => {
         const _ownerToken: any = await GetOwnerToken(productId);
         const _tokenURI: any = await GetTokenURI(productId);

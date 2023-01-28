@@ -107,7 +107,7 @@ export default function FilterBar({
     if (!loaded) return;
 
     getProducts();
-  }, [publicCtx.wallet.connected]);
+  }, [publicCtx.user.connected]);
 
   return (
     <>
