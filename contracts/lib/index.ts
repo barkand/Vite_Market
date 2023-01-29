@@ -1,7 +1,4 @@
-import {
-  Utils,
-  GetContract,
-} from "../../../admin/components/security/Authentication/wallet/libs/web3";
+import { Utils, GetContract } from "../../../admin/components";
 import { logger, PostAuthApi } from "../../../core/libs";
 
 import Market from "../Market.json";
