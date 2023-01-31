@@ -5,6 +5,9 @@ import Market from "../Market.json";
 
 const path = "Market>Contracts>lib>";
 
+const GetTokenId = (productId: number) =>
+  import.meta.env.VITE_NFT_CODE + productId;
+
 const Buy = async (
   productId: number,
   price: any,
@@ -12,14 +15,16 @@ const Buy = async (
   image: string
 ) => {
   let txn = "";
+  const NFT_id = GetTokenId(productId);
+
   try {
     let contract = await GetContract(Market);
-    let _gas = await contract.methods.buy(image, productId).estimateGas({
+    let _gas = await contract.methods.buy(image, NFT_id).estimateGas({
       from: account,
       value: Utils.toWei(price.toString(), "ether"),
     });
 
-    let _result = await contract.methods.buy(image, productId).send({
+    let _result = await contract.methods.buy(image, NFT_id).send({
       from: account,
       value: Utils.toWei(price.toString(), "ether"),
       gas: _gas,
@@ -46,14 +51,16 @@ const Buy = async (
 };
 
 const Transfer = async (productId: number, price: any, account: any) => {
+  const NFT_id = GetTokenId(productId);
+
   try {
     let contract = await GetContract(Market);
-    let _gas = await contract.methods.transferNft(productId).estimateGas({
+    let _gas = await contract.methods.transferNft(NFT_id).estimateGas({
       from: account,
       value: Utils.toWei(price.toString(), "ether"),
     });
 
-    await contract.methods.transferNft(productId).send({
+    await contract.methods.transferNft(NFT_id).send({
       from: account,
       value: Utils.toWei(price.toString(), "ether"),
       gas: _gas,
@@ -78,9 +85,11 @@ const Transfer = async (productId: number, price: any, account: any) => {
 };
 
 const GetTokenURI = async (productId: number) => {
+  const NFT_id = GetTokenId(productId);
+
   try {
     let contract = await GetContract(Market);
-    let uri = await contract.methods.getURI(productId).call();
+    let uri = await contract.methods.getURI(NFT_id).call();
 
     return { code: 200, status: "success", result: uri };
   } catch (e) {
@@ -90,9 +99,11 @@ const GetTokenURI = async (productId: number) => {
 };
 
 const GetOwnerToken = async (productId: number) => {
+  const NFT_id = GetTokenId(productId);
+
   try {
     let contract = await GetContract(Market);
-    let owner = await contract.methods.getOwnerToken(productId).call();
+    let owner = await contract.methods.getOwnerToken(NFT_id).call();
 
     return { code: 200, status: "success", result: owner };
   } catch (e) {
