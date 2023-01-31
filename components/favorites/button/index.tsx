@@ -30,7 +30,7 @@ export default function Like(props: any) {
         alert: {
           ...publicCtx.alert,
           open: true,
-          message: t("NeedLogin"),
+          message: t("need-login"),
           severity: StatusTypeEnum.Warning,
         },
       });

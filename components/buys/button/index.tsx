@@ -33,7 +33,7 @@ export default function Shop(props: any) {
         alert: {
           ...publicCtx.alert,
           open: true,
-          message: t("NeedLogin"),
+          message: t("need-login"),
           severity: StatusTypeEnum.Warning,
         },
       });
