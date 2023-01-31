@@ -80,7 +80,7 @@ export default function Shop(props: any) {
           itemId,
           price,
           publicCtx.user.user_id,
-          `${import.meta.env.VITE_CLIENT_PATH}/products/${image}`
+          `${image}`
         );
 
         if (_result.code === 200) {
