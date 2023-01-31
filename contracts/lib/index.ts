@@ -12,19 +12,19 @@ const Buy = async (
   productId: number,
   price: any,
   account: any,
-  image: string
+  imagePath: string
 ) => {
   let txn = "";
   const NFT_id = GetTokenId(productId);
 
   try {
     let contract = await GetContract(Market);
-    let _gas = await contract.methods.buy(image, NFT_id).estimateGas({
+    let _gas = await contract.methods.buy(imagePath, NFT_id).estimateGas({
       from: account,
       value: Utils.toWei(price.toString(), "ether"),
     });
 
-    let _result = await contract.methods.buy(image, NFT_id).send({
+    let _result = await contract.methods.buy(imagePath, NFT_id).send({
       from: account,
       value: Utils.toWei(price.toString(), "ether"),
       gas: _gas,
