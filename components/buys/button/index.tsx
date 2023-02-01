@@ -12,13 +12,11 @@ export default function Shop(props: any) {
   const { t } = useTranslation(["admin", "market"]);
   const {
     itemId,
-    image,
     price,
     isSoled,
     forSale,
   }: {
     itemId: any;
-    image: string;
     price: any;
     isSoled: boolean;
     forSale: boolean;
@@ -76,12 +74,7 @@ export default function Shop(props: any) {
           LoginFail(_result.message);
         }
       } else {
-        const _result: any = await Buy(
-          itemId,
-          price,
-          publicCtx.user.user_id,
-          `${image}`
-        );
+        const _result: any = await Buy(itemId, price, publicCtx.user.user_id);
 
         if (_result.code === 200) {
           setOwner(true);

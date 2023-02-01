@@ -8,25 +8,23 @@ const path = "Market>Contracts>lib>";
 const GetTokenId = (productId: number) =>
   import.meta.env.VITE_NFT_CODE + productId;
 
-const Buy = async (
-  productId: number,
-  price: any,
-  account: any,
-  imagePath: string
-) => {
+const Buy = async (ItemId: number, price: any, account: any) => {
   let txn = "";
-  const NFT_id = GetTokenId(productId);
+  const NFT_id = GetTokenId(ItemId);
+  const NFT_Metadata: any = `${
+    import.meta.env.VITE_CLIENT_PATH
+  }/${ItemId}.json`;
 
   try {
     let contract = await GetContract(Market);
-    let _gas = await contract.methods.buy(imagePath, NFT_id).estimateGas({
+    let _gas = await contract.methods.buy(NFT_Metadata, NFT_id).estimateGas({
       from: account,
-      value: Utils.toWei(price.toString(), "ether"),
+      value: Utils.toWei(`${price}`, "ether"),
     });
 
-    let _result = await contract.methods.buy(imagePath, NFT_id).send({
+    let _result = await contract.methods.buy(NFT_Metadata, NFT_id).send({
       from: account,
-      value: Utils.toWei(price.toString(), "ether"),
+      value: Utils.toWei(`${price}`, "ether"),
       gas: _gas,
       gasLimit: import.meta.env.VITE_GAS_LIMIT,
     });
@@ -40,7 +38,7 @@ const Buy = async (
 
   let _result = await PostAuthApi(
     {
-      product: productId,
+      product: ItemId,
       price: price,
       txn: txn,
     },
@@ -57,12 +55,12 @@ const Transfer = async (productId: number, price: any, account: any) => {
     let contract = await GetContract(Market);
     let _gas = await contract.methods.transferNft(NFT_id).estimateGas({
       from: account,
-      value: Utils.toWei(price.toString(), "ether"),
+      value: Utils.toWei(`${price}`, "ether"),
     });
 
     await contract.methods.transferNft(NFT_id).send({
       from: account,
-      value: Utils.toWei(price.toString(), "ether"),
+      value: Utils.toWei(`${price}`, "ether"),
       gas: _gas,
       gasLimit: import.meta.env.VITE_GAS_LIMIT,
     });
