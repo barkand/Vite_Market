@@ -38,8 +38,8 @@ const Buy = async (ItemId: number, price: any, account: any) => {
 
   let _result = await PostAuthApi(
     {
-      product: ItemId,
-      NFT_id: NFT_id,
+      product_id: ItemId,
+      nft_id: NFT_id,
       price: price,
       txn: txn,
     },
