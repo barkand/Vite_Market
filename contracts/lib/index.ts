@@ -12,8 +12,8 @@ const Buy = async (ItemId: number, price: any, account: any) => {
   let txn = "";
   const NFT_id = GetTokenId(ItemId);
   const NFT_Metadata: any = `${
-    import.meta.env.VITE_CLIENT_PATH
-  }/${ItemId}.json`;
+    import.meta.env.VITE_SERVER_PATH
+  }/metadata/${NFT_id}.json`;
 
   try {
     let contract = await GetContract(Market);
@@ -39,6 +39,7 @@ const Buy = async (ItemId: number, price: any, account: any) => {
   let _result = await PostAuthApi(
     {
       product: ItemId,
+      NFT_id: NFT_id,
       price: price,
       txn: txn,
     },
