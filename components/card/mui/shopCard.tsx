@@ -16,7 +16,7 @@ import Tilt from "../../../../core/components/effect/tilt";
 export default function ShopCard(props: any) {
   const {
     id,
-    title,
+    name,
     price,
     liked,
     soled,
@@ -36,7 +36,7 @@ export default function ShopCard(props: any) {
                 component="img"
                 height="auto"
                 image={image}
-                alt={title}
+                alt={name}
               />
             </Tilt>
           ) : (

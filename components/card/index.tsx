@@ -11,7 +11,7 @@ export default function ShopCard(props: any) {
     <>
       <ShopCardComponent
         id={product.id}
-        title={product.title}
+        name={product.nameEn}
         price={product.price}
         liked={product.liked}
         soled={product.soled}
