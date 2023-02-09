@@ -6,6 +6,7 @@ import Buy, { Transfer } from "../../../contracts/lib";
 import { PublicContext } from "../../../../core/context";
 import { Button } from "../../../../core/components";
 import { StatusTypeEnum } from "../../../../core/constant";
+import { PostAuthApi } from "../../../../core/libs";
 
 export default function Shop(props: any) {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);
@@ -38,7 +39,7 @@ export default function Shop(props: any) {
       return;
     }
 
-    const LoginSuccess = () => {
+    const BuySuccess = () => {
       setPublicCtx({
         ...publicCtx,
         alert: {
@@ -48,7 +49,8 @@ export default function Shop(props: any) {
         },
       });
     };
-    const LoginFail = (message: string) => {
+
+    const BuyFail = (message: string) => {
       setPublicCtx({
         ...publicCtx,
         alert: {
@@ -69,18 +71,33 @@ export default function Shop(props: any) {
 
         if (_result.code === 200) {
           setOwner(true);
-          LoginSuccess();
+          BuySuccess();
         } else {
-          LoginFail(_result.message);
+          BuyFail(_result.message);
         }
       } else {
-        const _result: any = await Buy(itemId, price, publicCtx.user.user_id);
+        const _result_check: any = await PostAuthApi(
+          {},
+          "market/validate-buys"
+        );
+        if (_result_check.code === 300) {
+          setPublicCtx({
+            ...publicCtx,
+            alert: {
+              open: true,
+              message: t("full-buys", { ns: "market" }),
+              severity: StatusTypeEnum.Warning,
+            },
+          });
+        } else {
+          const _result: any = await Buy(itemId, price, publicCtx.user.user_id);
 
-        if (_result.code === 200) {
-          setOwner(true);
-          setSoled(true);
-          LoginSuccess();
-        } else LoginFail(_result.message);
+          if (_result.code === 200) {
+            setOwner(true);
+            setSoled(true);
+            BuySuccess();
+          } else BuyFail(_result.message);
+        }
       }
     };
     buyProduct();
