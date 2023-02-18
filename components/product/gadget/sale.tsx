@@ -34,7 +34,7 @@ export default function SaleBox({ product }: any) {
 
     let _result: any = await PostAuthApi(
       {
-        product: product.id,
+        product_id: product.id,
         price: _inputValue,
       },
       "market/update-price"
@@ -64,8 +64,8 @@ export default function SaleBox({ product }: any) {
 
     let _result: any = await PostAuthApi(
       {
-        product: product.id,
-        forSale: _newStateForSale,
+        product_id: product.id,
+        for_sale: _newStateForSale,
       },
       "market/save-sale"
     );
