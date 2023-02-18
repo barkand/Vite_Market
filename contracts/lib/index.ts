@@ -50,6 +50,7 @@ const Buy = async (ItemId: number, price: any, account: any) => {
 };
 
 const Transfer = async (productId: number, price: any, account: any) => {
+  let txn = "";
   const NFT_id = GetTokenId(productId);
 
   try {
@@ -59,12 +60,14 @@ const Transfer = async (productId: number, price: any, account: any) => {
       value: Utils.toWei(`${price}`, "ether"),
     });
 
-    await contract.methods.transferNft(NFT_id).send({
+    let _result = await contract.methods.transferNft(NFT_id).send({
       from: account,
       value: Utils.toWei(`${price}`, "ether"),
       gas: _gas,
       gasLimit: import.meta.env.VITE_GAS_LIMIT,
     });
+
+    txn = _result.transactionHash;
   } catch (e: any) {
     logger.error(`${path}Transfer: ${e}`);
     if (e.code === -32000) return { code: 300, message: "buy-money" };
@@ -74,10 +77,11 @@ const Transfer = async (productId: number, price: any, account: any) => {
 
   let _result = await PostAuthApi(
     {
-      product: productId,
+      product_id: productId,
       price: price,
+      txn: txn,
     },
-    "market/save-buy"
+    "market/save-transfer"
   );
 
   return _result;
