@@ -13,7 +13,7 @@ export default function Item() {
 
   return (
     <Box
-      sx={{
+      style={{
         marginTop: "20px",
         marginLeft: "auto",
         marginRight: "auto",

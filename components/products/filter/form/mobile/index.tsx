@@ -35,7 +35,7 @@ export default function FilterMobile(props: any) {
       <>
         <IconButton
           onClick={handleClickOpen}
-          sx={{ position: "absolute", right: "15px" }}
+          style={{ position: "absolute", right: "15px" }}
         >
           <FilterIcon />
         </IconButton>
@@ -46,7 +46,7 @@ export default function FilterMobile(props: any) {
         setOpen={setOpen}
         fullscreen={publicCtx.device.isMobile}
       >
-        <GridHeader sx={{ mt: 1, mb: 1, p: 2 }} rowSpacing={5}>
+        <GridHeader style={{ mt: 1, mb: 1, p: 2 }} rowSpacing={5}>
           <FilterList {...props} />
         </GridHeader>
       </Dialog>

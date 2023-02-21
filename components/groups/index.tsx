@@ -44,7 +44,7 @@ export default function Groups() {
                   group._id.id
                 }.png`}
                 alt={group._id.id}
-                sx={{
+                style={{
                   maxHeight: "120px",
                   width: "auto",
                   marginLeft: "auto",

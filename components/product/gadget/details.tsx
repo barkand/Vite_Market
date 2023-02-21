@@ -15,7 +15,7 @@ export default function Details({ product }: any) {
       <GridHeader rowSpacing={2}>
         <GridItem sm={12}>
           <Label size="h4">{t("product-item-details")}</Label>
-          <Divider sx={{ marginTop: "10px" }} />
+          <Divider style={{ marginTop: "10px" }} />
         </GridItem>
         <GridItem xs={4}>
           <Label size="h7">{t("name")}</Label>
@@ -41,12 +41,12 @@ export default function Details({ product }: any) {
           <Label size="h7">{t("country")}</Label>
         </GridItem>
         <GridItem xs={8}>{product.country}</GridItem>
-        <Divider sx={{ marginTop: "20px" }} />
+        <Divider style={{ marginTop: "20px" }} />
         <GridItem xs={4}>
           <Label size="h7">{t("price")}</Label>
         </GridItem>
         <GridItem xs={8}>{`${product.price} eth`}</GridItem>
-        <Divider sx={{ marginTop: "20px" }} />
+        <Divider style={{ marginTop: "20px" }} />
       </GridHeader>
     </>
   );

@@ -15,7 +15,7 @@ export default function FilterWeb(props: any) {
         direction="column"
         alignItems="center"
         rowSpacing={5}
-        sx={{
+        style={{
           borderRadius: "40px",
           padding: "5% 1% 5% 1%",
           marginTop: "20px",

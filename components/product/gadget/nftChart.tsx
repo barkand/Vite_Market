@@ -51,10 +51,10 @@ export default function NftChart({ productId }: { productId: number }) {
   return (
     <>
       {chart && (
-        <GridHeader rowSpacing={3} sx={{ marginTop: "10px" }}>
+        <GridHeader rowSpacing={3} style={{ marginTop: "10px" }}>
           <GridItem sm={12}>
             <Label size="h4">{t("nft-history")}</Label>
-            <Divider sx={{ marginTop: "10px" }} />
+            <Divider style={{ marginTop: "10px" }} />
           </GridItem>
           <GridItem lg={6} md={12}>
             <div style={{ height: 250 }}>

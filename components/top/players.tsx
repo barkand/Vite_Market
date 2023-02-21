@@ -45,7 +45,7 @@ function MediaComponent({ name, type }: any) {
           import.meta.env.VITE_CLIENT_PATH
         }/products/${type}/${name}.png`}
         alt={name}
-        sx={{ height: "320px", width: "auto" }}
+        style={{ height: "320px", width: "auto" }}
       />
     </>
   );

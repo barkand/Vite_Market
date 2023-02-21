@@ -76,13 +76,13 @@ export default function SaleBox({ product }: any) {
   return (
     <>
       {product.owner === publicCtx.user.user_id ? (
-        <GridHeader rowSpacing={2} sx={{ marginTop: "10px" }}>
+        <GridHeader rowSpacing={2} style={{ marginTop: "10px" }}>
           <GridItem xs={4}>{t("your-price")}</GridItem>
           <GridItem xs={6}>
             <div style={{ direction: "ltr", float: publicCtx.culture.align }}>
               <Textbox
                 autoComplete="off"
-                sx={{ width: "16ch", marginTop: "-20px" }}
+                style={{ width: "16ch", marginTop: "-20px" }}
                 label={product.price}
                 onChange={handleChangePrice}
               />
@@ -110,7 +110,7 @@ export default function SaleBox({ product }: any) {
           price={product.price}
           isSoled={product.soled}
           forSale={product.forSale}
-          sx={{ marginTop: "-50px", float: publicCtx.culture.revertAlign }}
+          style={{ marginTop: "-50px", float: publicCtx.culture.revertAlign }}
         />
       ) : (
         <NotificationButton
@@ -120,7 +120,7 @@ export default function SaleBox({ product }: any) {
           )}`}
           link={`${RoutesTypeEnum.Item}/${product.id}`}
           notified={product.notified}
-          sx={{ marginTop: "-50px", float: publicCtx.culture.revertAlign }}
+          style={{ marginTop: "-50px", float: publicCtx.culture.revertAlign }}
         />
       )}
     </>

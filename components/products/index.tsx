@@ -18,7 +18,7 @@ export default function ProductsList(props: any) {
 
   return (
     <Box
-      sx={{
+      style={{
         marginTop: "20px",
         alignItems: "center",
         direction: "ltr",
@@ -29,7 +29,7 @@ export default function ProductsList(props: any) {
         direction="row"
         alignItems="center"
         justifyContent="space-evenly"
-        sx={{ padding: "40px" }}
+        style={{ padding: "40px" }}
         spacing={{ xl: 4, lg: 3, md: 2, sm: 2, xs: 1 }}
         rowSpacing={{ xl: 10, lg: 5, sm: 2, xs: 5 }}
       >

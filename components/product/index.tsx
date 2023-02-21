@@ -42,13 +42,13 @@ export default function ProductItem({ id }: { id: any }) {
   return (
     <>
       <GridHeader
-        sx={{ padding: publicCtx.device.isMobile ? "15px" : "40px" }}
+        style={{ padding: publicCtx.device.isMobile ? "15px" : "40px" }}
         spacing={3}
         rowSpacing={2}
       >
         {product && (
           <>
-            <GridItem lg={4} xs={12} sx={{ textAlign: "center" }}>
+            <GridItem lg={4} xs={12} style={{ textAlign: "center" }}>
               <div>
                 <Tilt>
                   <Image name={product.name} image={product.image} />

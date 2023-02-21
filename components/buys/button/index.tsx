@@ -108,7 +108,7 @@ export default function Shop(props: any) {
       {!owner && forSale && (
         <Button
           title={t("buy", { ns: "market" })}
-          sx={{ ...props.sx, color: soled ? "#9a70ff" : "#5fb987" }}
+          style={{ ...props.style, color: soled ? "#9a70ff" : "#5fb987" }}
           onClick={buyHandle}
         />
       )}

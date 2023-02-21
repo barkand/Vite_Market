@@ -58,7 +58,7 @@ export default function Like(props: any) {
     <>
       <IconButton
         label="add to favorites"
-        sx={{ ...props.sx, color: "#cc0202" }}
+        style={{ ...props.style, color: "#cc0202" }}
         onClick={likeHandle}
       >
         {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}

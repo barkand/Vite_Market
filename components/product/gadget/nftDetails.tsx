@@ -52,11 +52,11 @@ export default function NftDetails({ productId }: { productId: number }) {
         <>
           <GridHeader
             rowSpacing={2}
-            sx={{ marginTop: "30px", wordWrap: "break-word" }}
+            style={{ marginTop: "30px", wordWrap: "break-word" }}
           >
             <GridItem sm={12}>
               <Label size="h4">{t("nft-details")}</Label>
-              <Divider sx={{ marginTop: "10px" }} />
+              <Divider style={{ marginTop: "10px" }} />
             </GridItem>
 
             <GridItem xs={4}>

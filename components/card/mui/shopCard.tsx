@@ -14,17 +14,8 @@ import ShareButton from "../../../../core/components/toys/share";
 import Tilt from "../../../../core/components/effect/tilt";
 
 export default function ShopCard(props: any) {
-  const {
-    id,
-    name,
-    price,
-    liked,
-    soled,
-    link,
-    image,
-    LikeButton,
-    ShopButton,
-  } = props;
+  const { id, name, price, liked, soled, link, image, LikeButton, ShopButton } =
+    props;
 
   return (
     <>
