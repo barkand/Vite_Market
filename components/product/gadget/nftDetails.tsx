@@ -58,18 +58,26 @@ export default function NftDetails({ productId }: { productId: number }) {
               <Label size="h4">{t("nft-details")}</Label>
               <Divider sx={{ marginTop: "10px" }} />
             </GridItem>
+
             <GridItem xs={4}>
               <Label size="h7"> Owner:</Label>
             </GridItem>
             <GridItem xs={8}>{nft.owner}</GridItem>
+
             <GridItem xs={4}>
               <Label size="h7">URI:</Label>
             </GridItem>
-            <GridItem xs={8}>{nft.uri}</GridItem>
+            <GridItem xs={8}>
+              <a href={nft.uri} target="_blank" rel="noreferrer">
+                {nft.uri}
+              </a>
+            </GridItem>
+
             <GridItem xs={4}>
               <Label size="h7">Transaction Hash:</Label>
             </GridItem>
             <GridItem xs={8}>{nft.etherscan}</GridItem>
+
             <GridItem xs={4}>
               <Label size="h7">EtherScan:</Label>
             </GridItem>
