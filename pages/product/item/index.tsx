@@ -2,10 +2,10 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import { PublicContext } from "../../../../core/context";
-import { Box } from "../../../../core/components";
+import { PublicContext } from "@/core/context";
+import { Box } from "@/core/components";
 
-import ProductItem from "../../../components/product";
+import ProductItem from "@/market/components/product";
 
 export default function Item() {
   const { id } = useParams();

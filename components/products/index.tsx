@@ -2,14 +2,14 @@ import React from "react";
 
 import ShopCard from "../card";
 
-import { PublicContext } from "../../../core/context";
+import { PublicContext } from "@/core/context";
 import {
   GridHeader,
   GridItem,
   Box,
   Pagination,
   RSkeleton,
-} from "../../../core/components";
+} from "@/core/components";
 
 export default function ProductsList(props: any) {
   const { products, pages }: any = props;

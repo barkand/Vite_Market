@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { Card, BarChart } from "../../../core/components";
-import { PostApi } from "../../../core/libs";
+import { Card, BarChart } from "@/core/components";
+import { PostApi } from "@/core/libs";
 
 export default function AvgAges() {
   const [loaded, setLoaded] = React.useState<boolean>(false);

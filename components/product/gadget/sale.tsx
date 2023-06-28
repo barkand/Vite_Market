@@ -4,21 +4,12 @@ import _debounce from "lodash/debounce";
 
 import ShopButton from "../../buys/button";
 
-import { PublicContext } from "../../../../core/context";
-import { EditTypeEnum, RoutesTypeEnum } from "../../../../core/constant";
-import {
-  GridHeader,
-  GridItem,
-  Textbox,
-  Switch,
-} from "../../../../core/components";
-import { PostAuthApi } from "../../../../core/libs";
-import {
-  CheckCircleIcon,
-  CancelIcon,
-  EmptyCircleIcon,
-} from "../../../../core/icon";
-import { NotificationButton } from "../../../../admin/components";
+import { PublicContext } from "@/core/context";
+import { EditTypeEnum, RoutesTypeEnum } from "@/core/constant";
+import { GridHeader, GridItem, Textbox, Switch } from "@/core/components";
+import { PostAuthApi } from "@/core/libs";
+import { CheckCircleIcon, CancelIcon, EmptyCircleIcon } from "@/core/icon";
+import { NotificationButton } from "@/admin/components";
 
 export default function SaleBox({ product }: any) {
   const { publicCtx }: any = React.useContext(PublicContext);

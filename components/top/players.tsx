@@ -1,4 +1,4 @@
-import { GridHeader, GridItem, Media } from "../../../core/components";
+import { GridHeader, GridItem, Media } from "@/core/components";
 
 export default function Players() {
   return (

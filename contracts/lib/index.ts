@@ -1,5 +1,5 @@
-import { Utils, GetContract } from "../../../admin/components";
-import { logger, PostAuthApi } from "../../../core/libs";
+import { Utils, GetContract } from "@/admin/components";
+import { logger, PostAuthApi } from "@/core/libs";
 
 import Market from "../Market.json";
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { PublicContext } from "../../../core/context";
-import { Card, PieChart } from "../../../core/components";
-import { PostApi } from "../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { Card, PieChart } from "@/core/components";
+import { PostApi } from "@/core/libs";
 
 export default function CntPostPlayers() {
   const [loaded, setLoaded] = React.useState<boolean>(false);

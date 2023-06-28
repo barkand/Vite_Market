@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { PublicContext } from "../../../../core/context";
-import { StatusTypeEnum } from "../../../../core/constant";
-import { IconButton } from "../../../../core/components";
-import { PostAuthApi } from "../../../../core/libs";
-import { FavoriteIcon, FavoriteBorderIcon } from "../../../../core/icon";
+import { PublicContext } from "@/core/context";
+import { StatusTypeEnum } from "@/core/constant";
+import { IconButton } from "@/core/components";
+import { PostAuthApi } from "@/core/libs";
+import { FavoriteIcon, FavoriteBorderIcon } from "@/core/icon";
 
 export default function Like(props: any) {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);

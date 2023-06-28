@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { GridItem, SliderRange } from "../../../../../../core/components";
+import { GridItem, SliderRange } from "@/core/components";
 
 export default function Age(props: any) {
   const { t } = useTranslation(["market"]);

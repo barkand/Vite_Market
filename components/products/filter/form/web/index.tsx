@@ -2,9 +2,9 @@ import React from "react";
 
 import { default as FilterList } from "../../list";
 
-import { PublicContext } from "../../../../../../core/context";
-import { GridHeader } from "../../../../../../core/components";
-import { Background } from "../../../../../../core/theme";
+import { PublicContext } from "@/core/context";
+import { GridHeader } from "@/core/components";
+import { Background } from "@/core/theme";
 
 export default function FilterWeb(props: any) {
   const { publicCtx } = React.useContext(PublicContext);

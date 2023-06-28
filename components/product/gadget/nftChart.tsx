@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { PublicContext } from "../../../../core/context";
-import { Background, Colors } from "../../../../core/theme";
+import { PublicContext } from "@/core/context";
+import { Background, Colors } from "@/core/theme";
 import {
   GridHeader,
   GridItem,
@@ -10,8 +10,8 @@ import {
   Label,
   Table,
   LineChart,
-} from "../../../../core/components";
-import { PostApi } from "../../../../core/libs";
+} from "@/core/components";
+import { PostApi } from "@/core/libs";
 
 export default function NftChart({ productId }: { productId: number }) {
   const { publicCtx } = React.useContext(PublicContext);

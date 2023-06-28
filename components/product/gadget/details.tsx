@@ -1,11 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import {
-  GridHeader,
-  GridItem,
-  Label,
-  Divider,
-} from "../../../../core/components";
+import { GridHeader, GridItem, Label, Divider } from "@/core/components";
 
 export default function Details({ product }: any) {
   const { t } = useTranslation(["market"]);

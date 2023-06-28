@@ -3,14 +3,10 @@ import { useTranslation } from "react-i18next";
 
 import { default as FilterList } from "../../list";
 
-import { PublicContext } from "../../../../../../core/context";
-import { Background } from "../../../../../../core/theme";
-import {
-  GridHeader,
-  IconButton,
-  Dialog,
-} from "../../../../../../core/components";
-import { FilterIcon } from "../../../../../../core/icon";
+import { PublicContext } from "@/core/context";
+import { Background } from "@/core/theme";
+import { GridHeader, IconButton, Dialog } from "@/core/components";
+import { FilterIcon } from "@/core/icon";
 
 export default function FilterMobile(props: any) {
   const { publicCtx } = React.useContext(PublicContext);

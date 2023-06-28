@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { PublicContext } from "../../../core/context";
-import { Card, LineChart } from "../../../core/components";
-import { Colors } from "../../../core/theme";
+import { PublicContext } from "@/core/context";
+import { Card, LineChart } from "@/core/components";
+import { Colors } from "@/core/theme";
 
 const lineData = [
   { name: "Page A", value: 1.0, value2: 1.5 },

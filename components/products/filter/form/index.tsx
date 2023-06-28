@@ -1,7 +1,7 @@
 import React from "react";
 
-import { PublicContext } from "../../../../../core/context";
-import { PostApi, PostAuthApi } from "../../../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { PostApi, PostAuthApi } from "@/core/libs";
 
 import FilterWeb from "./web";
 import FilterMobile from "./mobile";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PostAuthApi } from "../../../core/libs";
+import { PostAuthApi } from "@/core/libs";
 
 import ProductsList from "../products";
 

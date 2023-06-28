@@ -1,12 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import Buy, { Transfer } from "../../../contracts/lib";
+import Buy, { Transfer } from "@/market/contracts/lib";
 
-import { PublicContext } from "../../../../core/context";
-import { Button } from "../../../../core/components";
-import { StatusTypeEnum } from "../../../../core/constant";
-import { PostAuthApi } from "../../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { Button } from "@/core/components";
+import { StatusTypeEnum } from "@/core/constant";
+import { PostAuthApi } from "@/core/libs";
 
 export default function Shop(props: any) {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);

@@ -1,8 +1,8 @@
 import React from "react";
 
-import { PublicContext } from "../../../core/context";
-import { Media, Carousel } from "../../../core/components";
-import { PostApi } from "../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { Media, Carousel } from "@/core/components";
+import { PostApi } from "@/core/libs";
 
 export default function Groups() {
   const { publicCtx } = React.useContext(PublicContext);

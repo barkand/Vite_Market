@@ -1,14 +1,9 @@
 import React from "react";
 
-import { PublicContext } from "../../../core/context";
-import {
-  GridHeader,
-  GridItem,
-  ShareButton,
-  Tilt,
-} from "../../../core/components";
-import { RoutesTypeEnum } from "../../../core/constant";
-import { PostAuthApi } from "../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { GridHeader, GridItem, ShareButton, Tilt } from "@/core/components";
+import { RoutesTypeEnum } from "@/core/constant";
+import { PostAuthApi } from "@/core/libs";
 
 import { Image, Details, NftDetails, NftChart } from "./gadget";
 import LikeButton from "../favorites/button";

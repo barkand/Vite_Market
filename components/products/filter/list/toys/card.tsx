@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-import { GridItem, Combo } from "../../../../../../core/components";
+import { GridItem, Combo } from "@/core/components";
 
 export default function Card(props: any) {
   const { t } = useTranslation(["market"]);

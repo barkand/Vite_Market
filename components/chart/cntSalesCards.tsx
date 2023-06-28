@@ -1,10 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { PublicContext } from "../../../core/context";
-import { Card, StackedBarChart } from "../../../core/components";
-import { Colors } from "../../../core/theme";
-import { PostApi } from "../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { Card, StackedBarChart } from "@/core/components";
+import { Colors } from "@/core/theme";
+import { PostApi } from "@/core/libs";
 
 export default function CntSalesCards() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
@@ -27,7 +27,11 @@ export default function CntSalesCards() {
   }, [loaded]);
 
   return (
-    <Card title={t("cnt-sale-cards", { ns: "market" })} height="350px" className="step-chart-Sales">
+    <Card
+      title={t("cnt-sale-cards", { ns: "market" })}
+      height="350px"
+      className="step-chart-Sales"
+    >
       {chart && (
         <StackedBarChart
           data={chart}

@@ -1,16 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { GetOwnerToken, GetTokenURI } from "../../../contracts/lib";
+import { GetOwnerToken, GetTokenURI } from "@/market/contracts/lib";
 
-import {
-  GridHeader,
-  GridItem,
-  Divider,
-  Label,
-} from "../../../../core/components";
-import { PublicContext } from "../../../../core/context";
-import { PostAuthApi } from "../../../../core/libs";
+import { GridHeader, GridItem, Divider, Label } from "@/core/components";
+import { PublicContext } from "@/core/context";
+import { PostAuthApi } from "@/core/libs";
 
 export default function NftDetails({ productId }: { productId: number }) {
   const { publicCtx } = React.useContext(PublicContext);

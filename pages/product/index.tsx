@@ -1,9 +1,9 @@
 import React from "react";
 
-import { PublicContext } from "../../../core/context";
+import { PublicContext } from "@/core/context";
 
-import ProductsList from "../../components/products";
-import FilterBar from "../../components/products/filter/form";
+import ProductsList from "@/market/components/products";
+import FilterBar from "@/market/components/products/filter/form";
 
 export default function List() {
   const { publicCtx } = React.useContext(PublicContext);

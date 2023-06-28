@@ -1,7 +1,7 @@
 import React from "react";
 
 import ProductsList from "../products";
-import { PostAuthApi } from "../../../core/libs";
+import { PostAuthApi } from "@/core/libs";
 
 export default function Buys() {
   const [loaded, setLoaded] = React.useState<boolean>(false);
