@@ -16,7 +16,7 @@ const Buy = async (ItemId: number, price: any, account: any) => {
   }/metadata/${NFT_id}.json`;
 
   try {
-    let contract = await GetContract(Market);
+    let contract: any = await GetContract(Market);
     let _gas = await contract.methods.buy(NFT_Metadata, NFT_id).estimateGas({
       from: account,
       value: Utils.toWei(`${price}`, "ether"),
@@ -54,13 +54,13 @@ const Transfer = async (productId: number, price: any, account: any) => {
   const NFT_id = GetTokenId(productId);
 
   try {
-    let contract = await GetContract(Market);
-    let _gas = await contract.methods.transferNft(NFT_id).estimateGas({
+    let contract: any = await GetContract(Market);
+    let _gas: any = await contract.methods.transferNft(NFT_id).estimateGas({
       from: account,
       value: Utils.toWei(`${price}`, "ether"),
     });
 
-    let _result = await contract.methods.transferNft(NFT_id).send({
+    let _result: any = await contract.methods.transferNft(NFT_id).send({
       from: account,
       value: Utils.toWei(`${price}`, "ether"),
       gas: _gas,
@@ -91,8 +91,8 @@ const GetTokenURI = async (productId: number) => {
   const NFT_id = GetTokenId(productId);
 
   try {
-    let contract = await GetContract(Market);
-    let uri = await contract.methods.getURI(NFT_id).call();
+    let contract: any = await GetContract(Market);
+    let uri: any = await contract.methods.getURI(NFT_id).call();
 
     return { code: 200, status: "success", result: uri };
   } catch (e) {
@@ -105,8 +105,8 @@ const GetOwnerToken = async (productId: number) => {
   const NFT_id = GetTokenId(productId);
 
   try {
-    let contract = await GetContract(Market);
-    let owner = await contract.methods.getOwnerToken(NFT_id).call();
+    let contract: any = await GetContract(Market);
+    let owner: any = await contract.methods.getOwnerToken(NFT_id).call();
 
     return { code: 200, status: "success", result: owner };
   } catch (e) {
